@@ -6,8 +6,10 @@ package com.mse.guess.game;
 public class Player {
     private int number;
 
-    public void guess() {
+    public int guess() {
         number = (int) (Math.random() * 10);
         System.out.println("I am guessing " + number);
+
+        return number;
     }
 }
