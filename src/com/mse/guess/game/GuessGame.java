@@ -8,6 +8,9 @@ public class GuessGame {
 //    Player p2;
 //    Player p3;
 
+    /**
+     * Start the game ...
+     */
     public void startGame() {
         Player p1 = new Player();
         Player p2 = new Player();
