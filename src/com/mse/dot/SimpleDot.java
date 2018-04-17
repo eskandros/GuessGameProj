@@ -14,23 +14,27 @@ public class SimpleDot {
     }
 
     public String checkLocation(String stringGuess) {
-        int guess = Integer.parseInt(stringGuess);
-
         String result = "miss";
-        for (int cell : locations) {
-            if (guess == cell) {
-                result = "hit";
-                numOfHits++;
-                break;
-            }
-        }
 
-        if (numOfHits == locations.length) {
-            System.out.println(result);
-            result = "kill";
+        try {
+            int guess = Integer.parseInt(stringGuess);
+
+            for (int cell : locations) {
+                if (guess == cell) {
+                    result = "hit";
+                    numOfHits++;
+                    break;
+                }
+            }
+
+            if (numOfHits == locations.length) {
+                System.out.println(result);
+                result = "kill";
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("NumberFormatException : " + e);
         }
         System.out.println(result);
-
         return result;
     }
 
