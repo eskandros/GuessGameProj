@@ -1,6 +1,7 @@
 package com.mse;
 
 import com.mse.arrays.book;
+import com.mse.dot.SimpleDot;
 import com.mse.guess.game.GuessGame;
 
 public class Main {
@@ -50,5 +51,13 @@ public class Main {
             System.out.println(myBooks[i].getAuthor());
             i++;
         }
+    }
+
+    private static void dotGameGuess() {
+        SimpleDot simpleDot = new SimpleDot();
+
+        int[] locations = {2, 3, 4};
+
+
     }
 }
