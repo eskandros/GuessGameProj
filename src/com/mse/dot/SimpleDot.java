@@ -5,30 +5,32 @@ package com.mse.dot;
  */
 public class SimpleDot {
     // hold cells
-    int[] locations;
+    private int[] locations;
     //hold number of hits
-    int numOfHits;
+    private int numOfHits;
 
     public void setLocations(int[] locations) {
         this.locations = locations;
     }
 
-    public void checkLocation(String guess) {
-        int loc = Integer.parseInt(guess);
+    public String checkLocation(String stringGuess) {
+        int guess = Integer.parseInt(stringGuess);
 
-        int count = 0;
         String result = "miss";
-        for (int i=0;  i<locations.length; i++){
-            if (loc == locations[i]) {
+        for (int cell : locations) {
+            if (guess == cell) {
                 result = "hit";
                 numOfHits++;
+                break;
             }
         }
 
-        System.out.println("hit");
+        if (numOfHits == locations.length) {
+            result = "kill";
+        }
+        System.out.println(result);
+
+        return result;
     }
 
-    public void setCells(int[] cellLocations) {
-
-    }
 }

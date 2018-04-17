@@ -12,15 +12,20 @@ public class Main {
      * @param args
      */
     public static void main(String[] args) {
-        // use these lines to run the guess game
+        // use guess game
         playGuessGame();
 
         System.out.println("*********************************************");
         System.out.println("*********************************************");
 
-        // use these lines to run the book array
+        // run the array practice
         arrayPractice();
 
+        System.out.println("*********************************************");
+        System.out.println("*********************************************");
+
+        // run dot guess game
+        playDotGame();
     }
 
     private static void playGuessGame() {
@@ -53,11 +58,21 @@ public class Main {
         }
     }
 
-    private static void dotGameGuess() {
+    private static void playDotGame() {
         SimpleDot simpleDot = new SimpleDot();
 
         int[] locations = {2, 3, 4};
 
+        simpleDot.setLocations(locations);
 
+        String guess = "2";
+        String result = simpleDot.checkLocation(guess);
+
+        String testResult = "failed";
+        if (result.equals("hit")) {
+            testResult = "passed";
+        }
+
+        System.out.println(testResult);
     }
 }
