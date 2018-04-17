@@ -26,6 +26,7 @@ public class SimpleDot {
         }
 
         if (numOfHits == locations.length) {
+            System.out.println(result);
             result = "kill";
         }
         System.out.println(result);

@@ -1,6 +1,7 @@
 package com.mse;
 
 import com.mse.arrays.book;
+import com.mse.dot.Helper;
 import com.mse.dot.SimpleDot;
 import com.mse.guess.game.GuessGame;
 
@@ -80,18 +81,21 @@ public class Main {
         boolean active = true;
         int numberOfGuesses = 0;
         SimpleDot simpleDot = new SimpleDot();
+        //getUserInput
 
         int cellValue = (int)(Math.random()*5);
         int[] locations = {cellValue, cellValue+2, cellValue+4};
-
         simpleDot.setLocations(locations);
+
+        Helper helper = new Helper();
 
         while (active) {
             // get guess
-            String guess = "2";
+            String guess = helper.getUserInput("Enter a number: ");
+
             String result = simpleDot.checkLocation(guess);
             numberOfGuesses++;
-            if (result.equals("kill")) {
+            if (result!=null && result.equals("kill")) {
                 active = false;
                 System.out.println("Number of guess: " + numberOfGuesses);
             }
