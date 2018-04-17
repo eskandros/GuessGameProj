@@ -3,7 +3,10 @@ package com.mse;
 import com.mse.arrays.book;
 import com.mse.dot.Helper;
 import com.mse.dot.SimpleDot;
+import com.mse.dot.SimpleDot2;
 import com.mse.guess.game.GuessGame;
+
+import java.util.ArrayList;
 
 public class Main {
 
@@ -27,7 +30,8 @@ public class Main {
 
         // run dot guess game
 //        playDotGame();
-        playDotGame2();
+//        playDotGame2();
+        playDotGame3();;
     }
 
     private static void playGuessGame() {
@@ -68,7 +72,7 @@ public class Main {
         simpleDot.setLocations(locations);
 
         String guess = "2";
-        String result = simpleDot.checkLocation(guess);
+        String result = simpleDot.checkUserGuess(guess);
 
         String testResult = "failed";
         if (result.equals("hit")) {
@@ -81,7 +85,6 @@ public class Main {
         boolean active = true;
         int numberOfGuesses = 0;
         SimpleDot simpleDot = new SimpleDot();
-        //getUserInput
 
         int cellValue = (int)(Math.random()*5);
         int[] locations = {cellValue, cellValue+2, cellValue+4};
@@ -90,10 +93,42 @@ public class Main {
         Helper helper = new Helper();
 
         while (active) {
-            // get guess
+            // get user guess
             String guess = helper.getUserInput("Enter a number: ");
 
-            String result = simpleDot.checkLocation(guess);
+            String result = simpleDot.checkUserGuess(guess);
+            numberOfGuesses++;
+            if (result!=null && result.equals("kill")) {
+                active = false;
+                System.out.println("Number of guess: " + numberOfGuesses);
+            }
+
+        }
+    }
+
+    private static void playDotGame3() {
+        boolean active = true;
+        int numberOfGuesses = 0;
+        SimpleDot2 simpleDot = new SimpleDot2();
+
+        int cellValue = (int)(Math.random()*5);
+        ArrayList<String> locations = new ArrayList();
+        locations.add(String.valueOf(cellValue));
+        locations.add(String.valueOf(cellValue+2));
+        locations.add(String.valueOf(cellValue+4));
+
+        System.out.println("Value at index 0: " + locations.get(0));
+        System.out.println("Value at index 1: " + locations.get(1));
+        System.out.println("Value at index 2: " + locations.get(2));
+        simpleDot.setLocations(locations);
+
+        Helper helper = new Helper();
+
+        while (active) {
+            // get user guess
+            String guess = helper.getUserInput("Enter a number: ");
+
+            String result = simpleDot.checkUserGuess(guess);
             numberOfGuesses++;
             if (result!=null && result.equals("kill")) {
                 active = false;
