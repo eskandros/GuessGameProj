@@ -25,7 +25,8 @@ public class Main {
         System.out.println("*********************************************");
 
         // run dot guess game
-        playDotGame();
+//        playDotGame();
+        playDotGame2();
     }
 
     private static void playGuessGame() {
@@ -72,7 +73,29 @@ public class Main {
         if (result.equals("hit")) {
             testResult = "passed";
         }
-
         System.out.println(testResult);
+    }
+
+    private static void playDotGame2() {
+        boolean active = true;
+        int numberOfGuesses = 0;
+        SimpleDot simpleDot = new SimpleDot();
+
+        int cellValue = (int)(Math.random()*5);
+        int[] locations = {cellValue, cellValue+2, cellValue+4};
+
+        simpleDot.setLocations(locations);
+
+        while (active) {
+            // get guess
+            String guess = "2";
+            String result = simpleDot.checkLocation(guess);
+            numberOfGuesses++;
+            if (result.equals("kill")) {
+                active = false;
+                System.out.println("Number of guess: " + numberOfGuesses);
+            }
+
+        }
     }
 }
