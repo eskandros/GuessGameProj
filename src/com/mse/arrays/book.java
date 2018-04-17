@@ -1,7 +1,7 @@
 package com.mse.arrays;
 
 /**
- * Created by mseskander on 15/04/2018.
+ * Created on 15/04/2018.
  */
 public class book {
     private String title;

@@ -1,7 +1,7 @@
 package com.mse.guess.game;
 
 /**
- * Created by mseskander on 14/04/2018.
+ * Created on 14/04/2018.
  */
 public class GuessGame {
 //    Player p1;
